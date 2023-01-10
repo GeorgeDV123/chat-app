@@ -8,7 +8,7 @@ import "firebase/compat/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-
+import "/style.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDExTGrAXK0KrDGCVfBj9PZzBrUemegq1U",
@@ -32,10 +32,11 @@ function App() {
     <div className="App">
       <header>
         <h1>⚛️🔥💬</h1>
+        <h2>Hi</h2>
         <SignOut />
       </header>
 
-      <section>{user ? <ChatRoom /> : <SignIn />}</section>
+      <section className="chat-1">{user ? <ChatRoom /> : <SignIn />}</section>
     </div>
   );
 }
@@ -51,6 +52,7 @@ function SignIn() {
       <button className="sign-in" onClick={signInWithGoogle}>
         Sign in with Google
       </button>
+      <button className="sign-inF">Sign in as Guest</button>
       <p>
         Do not violate the community guidelines or you will be banned for life!
       </p>
