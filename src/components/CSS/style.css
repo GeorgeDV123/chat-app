@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&family=Rubik&display=swap');
+
+/* Variables / Layout */
+
+:root {
+  --purple: #6a2c70;
+  --orange: #f08a5d;
+  --yellow: #f9ed69;
+  --red: #b83b5e;
+  --blue: #0d7377;
+  --dark: #061c26;
+}
+
+body {
+  margin: 0;
+  color: white;
+  background: var(--dark);
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+ 
+}
+
+.purple {
+  background: var(--purple);
+}
+
+.orange {
+  background: var(--orange);
+}
+
+.red {
+  background: var(--red);
+}
+
+.blue {
+  background: var(--blue);
+}
+
+.yellow {
+  background-color: var(--yellow);
+}
+
+.spacer {
+  aspect-ratio: 960/540;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+}
+
+.layer1 {
+  background-image: url("/imgs/orange-peaks.svg");
+}
+
+.layer2 {
+  background-image: url("/imgs/red-purple.svg");
+}
+
+.layer3 {
+  background-image: url("/imgs/purple-steps1.svg");
+}
+
+.curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tilt {
+  position: absolute;
+  bottom: 72%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.tilt img {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 250px;
+}
+
+.curve img {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 152px;
+}
+
+/* Main Content */
+
+/* Header */
+
+h1 {
+  font-family: "Rowdies", cursive;
+  font-size: 5rem;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Rowdies", cursive;
+  font-size: 3rem;
+  margin: 0.5rem;
+}
+
+header {
+  padding: 10%;
+  margin-bottom: 20%;
+}
+
+header img {
+  width: 8rem;
+  height: 8rem;
+}
+
+header p {
+  max-width: 80%;
+  margin: auto;
+}
+
+/* Main */
+
+.main1 {
+  display: grid;
+  gap: 10%;
+  grid-template-columns: 40% 40%;
+  align-items: center;
+  justify-content: end;
+}
+
+.main1 img {
+  width: 80%;
+}
+
+.main1 button {
+  padding: 1rem;
+  font-size: 1.4rem;
+  background-color: #90D1BF;;
+  border: none; 
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.main1 button:hover {
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+}
+
+.main2 {
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.main2 div {
+  border: 0.2rem solid black;
+}
+
+.main2 img {
+  width: 18%;
+  position: absolute;
+  left: 60%;
+  bottom: -10%;
+  z-index: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+

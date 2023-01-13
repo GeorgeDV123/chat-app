@@ -4,11 +4,10 @@ import "firebase/compat/analytics";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import { signInAnonymously } from "firebase/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-
-import "/style.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDExTGrAXK0KrDGCVfBj9PZzBrUemegq1U",
@@ -29,14 +28,16 @@ function ChatApp() {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
-      <header>
-        <h1>⚛️🔥💬</h1>
-        <h2>Hi</h2>
-        <SignOut />
-      </header>
-
-      <section className="chat-1">{user ? <ChatRoom /> : <SignIn />}</section>
+    <div className="chat">
+      <section className="chat-1">
+        <div className="heading">
+          <h2>
+            <span className="cheese">Cheese Chat</span> 🧀😃🎉
+          </h2>
+          <SignOut />
+        </div>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
     </div>
   );
 }
@@ -49,13 +50,20 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>
-        Sign in with Google
-      </button>
-      <button className="sign-inF">Sign in as Guest</button>
-      <p>
-        Do not violate the community guidelines or you will be banned for life!
-      </p>
+      <section className="login-area">
+        <button className="sign-in" onClick={signInWithGoogle}>
+          <img src="/imgs/google-logo.svg" />
+          Sign in with Google
+        </button>
+        <button className="sign-in" onClick={() => signInAnonymously(auth)}>
+          <img src="/imgs/person.svg" />
+          Sign in as Guest
+        </button>
+        <p>
+          Welcome! Feel free to chat, but remeber not to say anything bad about
+          cheese (this will result in an instant ban!).
+        </p>
+      </section>
     </>
   );
 }
@@ -97,22 +105,22 @@ function ChatRoom() {
 
   return (
     <>
-      <main>
+      <section className="main-app">
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
 
         <span ref={dummy}></span>
-      </main>
+      </section>
 
-      <form onSubmit={sendMessage}>
+      <form className="chat-form" onSubmit={sendMessage}>
         <input
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
-          placeholder="say something nice"
+          placeholder="'I love cheese because...'"
         />
 
         <button type="submit" disabled={!formValue}>
-          🕊️
+          🧀 Send
         </button>
       </form>
     </>
@@ -128,6 +136,7 @@ function ChatMessage(props) {
     <>
       <div className={`message ${messageClass}`}>
         <img
+          className="img1"
           src={
             photoURL || "https://api.adorable.io/avatars/23/abott@adorable.png"
           }
