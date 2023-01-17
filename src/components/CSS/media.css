@@ -81,6 +81,10 @@
     margin-bottom: 15%;
   }
 
+  .main2 img {
+    bottom: -5%;
+  }
+
   .tilt {
     bottom: 68%;
   }
@@ -111,3 +115,11 @@
     bottom: 70%;
   }
 }
+
+@media (max-width: 1300px) {
+  .main2 {
+    margin-top: 10%;
+  }
+}
+
+

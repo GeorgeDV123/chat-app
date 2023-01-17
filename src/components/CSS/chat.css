@@ -9,9 +9,10 @@
   margin: 1rem;
   background: url("/imgs/cheese-wedge1.svg") no-repeat;
   background-size: cover;
+  border: solid white;
 }
 
-.cheese {
+.heading {
   font-style: italic;
   text-decoration: underline;
 }
@@ -70,24 +71,20 @@
 /* Chat Area */
 
 .chat-form {
-  height: 8vh;
-  position: absolute;
-  bottom: -5%;
+  height: 10%;
   background-color: rgb(24, 23, 23);
   width: 100%;
   display: flex;
-  font-size: 1.5rem;
 }
 
 .chat-form input {
-  line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
   background: rgb(58, 58, 58);
   color: white;
   outline: none;
   border: none;
-  padding: 0 10px;
+  padding: 0 0.5rem;
 }
 
 .chat-form button {
@@ -105,7 +102,7 @@
   cursor: not-allowed;
 }
 
-.heading {
+.heading-box {
   border-bottom: 0.3rem solid black;
   display: flex;
   align-items: center;
@@ -117,9 +114,7 @@
   background-color: #b83b5e;
   border: none;
   font-size: 1.1rem;
-  width: fit-content;
   margin: auto;
- 
 }
 
 .sign-out:hover {

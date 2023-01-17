@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rowdies&family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Rowdies&display=swap');
 
 /* Variables / Layout */
 
@@ -11,13 +11,28 @@
   --dark: #061c26;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   color: white;
   background: var(--dark);
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.1rem;
   font-size: 1.2rem;
+  animation: fadein 2s ease;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 section {
@@ -76,30 +91,6 @@ section {
   left: 0;
   width: 100%;
   overflow: hidden;
-  line-height: 0;
-}
-
-.tilt {
-  position: absolute;
-  bottom: 72%;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.tilt img {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 250px;
-}
-
-.curve img {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 152px;
 }
 
 /* Main Content */
@@ -163,25 +154,28 @@ header p {
 
 .main2 {
   display: grid;
-  grid-template-columns: repeat(3, 25%);
-  align-items: center;
+  grid-template-columns: repeat(3, 32%);
+  align-items: baseline;
   justify-content: space-evenly;
 }
 
 .main2 div {
-  border: 0.2rem solid black;
+  padding: 1rem;
+  border-radius: 20px;
+  background-color: rgba(107, 100, 100, 0.5);
+}
+
+.main2 div p {
+  text-align: left;
+  padding-left: 1rem;
 }
 
 .main2 img {
   width: 18%;
   position: absolute;
-  left: 60%;
+  left: 40%;
   bottom: -10%;
   z-index: 1;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 

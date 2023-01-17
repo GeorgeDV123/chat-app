@@ -1,37 +1,31 @@
+'use strict';
 
 const functions = require("firebase-functions");
 const Filter = require("bad-words");
 const admin = require("firebase-admin");
+
 admin.initializeApp();
 
 const db = admin.firestore();
 
-exports.citrusHaters = functions.firestore
-  .document("messages/{msgId}")
+// Chat Filter
+exports.chesseHaters = functions.firestore
+  .document('messages/{msgId}')
   .onCreate(async (doc, ctx) => {
-    const filter = new Filter({ emptyList: true });
-    const newBadWords = ["lemons are bad"];
-
+    const filter = new Filter();
+    // List of banned words
+    const newBadWords = ["cheese is bad", "i hate cheese", "i dont like cheese", "cheese is awful"];
     filter.addWords(...newBadWords);
 
     const { text, uid } = doc.data();
 
+    // Clean the message and ban user
     if (filter.isProfane(text)) {
       const cleaned = filter.clean(text);
       await doc.ref.update({
-        text: `🤐 I got BANNED for life for saying... ${cleaned}`,
+        text: `Hey! You cant say ${cleaned}! Now you're banned 🤐!`,
       });
 
       await db.collection("banned").doc(uid).set({});
-    }
-
-    const userRef = db.collection("users").doc(uid);
-
-    const userData = (await userRef.get()).data();
-
-    if (userData.msgCount >= 7) {
-      await db.collection("banned").doc(uid).set({});
-    } else {
-      await userRef.set({ msgCount: (userData.msgCount || 0) + 1 });
     }
   });

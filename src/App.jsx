@@ -1,5 +1,5 @@
 import React from "react";
-import { Content } from "./components/Content";
+import { HomePage } from "./components/HomePage";
 import "./components/CSS/style.css";
 import "./components/CSS/chat.css";
 import "./components/CSS/media.css";
@@ -8,7 +8,7 @@ import "./components/CSS/media.css";
 function App() {
   return (
     <>
-     <Content />
+     <HomePage />
     </>
   );
 }
